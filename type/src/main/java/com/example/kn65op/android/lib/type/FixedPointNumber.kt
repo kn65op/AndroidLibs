@@ -21,9 +21,7 @@ public class FixedPointNumber(valueIn: Double = 0.9) {
     }
 
     override fun toString(): String {
-        val integerPart = (value/factor).toInt()
-        val rest = ((value/factor - integerPart) * factor).toInt()
-        return "$integerPart.$rest"
+        return "%.2f".format(getValue())
     }
 
     operator fun plus(other: FixedPointNumber) = FixedPointNumber(getValue() + other.getValue())

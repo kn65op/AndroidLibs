@@ -3,6 +3,7 @@ package com.example.kn65op.android.lib.type
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.closeTo
 import com.natpryce.hamkrest.equalTo
+import com.natpryce.hamkrest.matches
 import org.junit.Test
 
 class FixedPointNumberTest {
@@ -58,6 +59,13 @@ class FixedPointNumberTest {
     fun divide() {
         assertThat(FixedPointNumber(1.0) / FixedPointNumber(2.0), equalTo(FixedPointNumber(0.5)))
         assertThat(FixedPointNumber(8.22) / FixedPointNumber(1.99), equalTo(FixedPointNumber(4.13)))
+    }
+
+    @Test
+    fun `convert toString`() {
+        assertThat(FixedPointNumber(1).toString(), matches(Regex("1.00")))
+        assertThat(FixedPointNumber(1.258).toString(), matches(Regex("1.26")))
+        assertThat(FixedPointNumber(0.11).toString(), matches(Regex("0.11")))
     }
 }
 
