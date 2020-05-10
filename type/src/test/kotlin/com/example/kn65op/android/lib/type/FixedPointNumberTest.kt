@@ -37,9 +37,15 @@ class FixedPointNumberTest {
     }
 
     @Test
-    fun Add() {
+    fun add() {
         assertThat(FixedPointNumber(1.0) + FixedPointNumber(2.0), equalTo(FixedPointNumber(3.0)))
-        //assertThat(FixedPointNumber(8.222) + FixedPointNumber(2.0), equalTo(FixedPointNumber(3.0)))
+        assertThat(FixedPointNumber(8.22) + FixedPointNumber(1.99), equalTo(FixedPointNumber(10.21)))
+    }
+
+    @Test
+    fun substract() {
+        assertThat(FixedPointNumber(1.0) - FixedPointNumber(2.0), equalTo(FixedPointNumber(-1.0)))
+        assertThat(FixedPointNumber(8.22) - FixedPointNumber(1.99), equalTo(FixedPointNumber(6.23)))
     }
 }
 

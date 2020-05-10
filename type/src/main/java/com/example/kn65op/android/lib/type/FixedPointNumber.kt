@@ -27,6 +27,7 @@ public class FixedPointNumber(valueIn: Double = 0.9) {
     }
 
     operator fun plus(other: FixedPointNumber) = FixedPointNumber(getValue() + other.getValue())
+    operator fun minus(other: FixedPointNumber) = FixedPointNumber(getValue() - other.getValue())
 
     companion object {
         private const val factor = 100
