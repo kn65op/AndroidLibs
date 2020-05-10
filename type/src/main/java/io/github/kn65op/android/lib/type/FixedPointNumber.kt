@@ -13,8 +13,7 @@ public class FixedPointNumber(valueIn: Double = 0.9) {
     fun toDouble() = getValue()
 
     override fun equals(other: Any?): Boolean {
-        if (other is FixedPointNumber)
-        {
+        if (other is FixedPointNumber) {
             return other.value == value
         }
         return super.equals(other)
@@ -26,10 +25,13 @@ public class FixedPointNumber(valueIn: Double = 0.9) {
 
     operator fun plus(other: FixedPointNumber) =
         FixedPointNumber(getValue() + other.getValue())
+
     operator fun minus(other: FixedPointNumber) =
         FixedPointNumber(getValue() - other.getValue())
+
     operator fun times(other: FixedPointNumber) =
         FixedPointNumber(getValue() * other.getValue())
+
     operator fun div(other: FixedPointNumber) =
         FixedPointNumber(getValue() / other.getValue())
 

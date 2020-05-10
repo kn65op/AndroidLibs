@@ -43,11 +43,13 @@ class FixedPointNumberTest {
         assertThat(
             FixedPointNumber(1.0) + FixedPointNumber(
                 2.0
-            ), equalTo(FixedPointNumber(3.0)))
+            ), equalTo(FixedPointNumber(3.0))
+        )
         assertThat(
             FixedPointNumber(8.22) + FixedPointNumber(
                 1.99
-            ), equalTo(FixedPointNumber(10.21)))
+            ), equalTo(FixedPointNumber(10.21))
+        )
     }
 
     @Test
@@ -55,11 +57,13 @@ class FixedPointNumberTest {
         assertThat(
             FixedPointNumber(1.0) - FixedPointNumber(
                 2.0
-            ), equalTo(FixedPointNumber(-1.0)))
+            ), equalTo(FixedPointNumber(-1.0))
+        )
         assertThat(
             FixedPointNumber(8.22) - FixedPointNumber(
                 1.99
-            ), equalTo(FixedPointNumber(6.23)))
+            ), equalTo(FixedPointNumber(6.23))
+        )
     }
 
     @Test
@@ -67,11 +71,13 @@ class FixedPointNumberTest {
         assertThat(
             FixedPointNumber(1.0) * FixedPointNumber(
                 2.0
-            ), equalTo(FixedPointNumber(2.0)))
+            ), equalTo(FixedPointNumber(2.0))
+        )
         assertThat(
             FixedPointNumber(8.22) * FixedPointNumber(
                 1.99
-            ), equalTo(FixedPointNumber(16.36)))
+            ), equalTo(FixedPointNumber(16.36))
+        )
     }
 
     @Test
@@ -79,11 +85,13 @@ class FixedPointNumberTest {
         assertThat(
             FixedPointNumber(1.0) / FixedPointNumber(
                 2.0
-            ), equalTo(FixedPointNumber(0.5)))
+            ), equalTo(FixedPointNumber(0.5))
+        )
         assertThat(
             FixedPointNumber(8.22) / FixedPointNumber(
                 1.99
-            ), equalTo(FixedPointNumber(4.13)))
+            ), equalTo(FixedPointNumber(4.13))
+        )
     }
 
     @Test
