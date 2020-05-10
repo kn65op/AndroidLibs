@@ -23,6 +23,13 @@ class FixedPointNumberTest {
     }
 
     @Test
+    fun `Initialized with double should trim to limit round`() {
+        val number = FixedPointNumber(2.348)
+
+        assertThat(number.toDouble(), closeTo(2.35, error))
+    }
+
+    @Test
     fun `Initialized with double should trim to limit`() {
         val number = FixedPointNumber(2.344)
 
@@ -30,8 +37,9 @@ class FixedPointNumberTest {
     }
 
     @Test
-    fun `Add tow numbers`() {
+    fun Add() {
         assertThat(FixedPointNumber(1.0) + FixedPointNumber(2.0), equalTo(FixedPointNumber(3.0)))
+        //assertThat(FixedPointNumber(8.222) + FixedPointNumber(2.0), equalTo(FixedPointNumber(3.0)))
     }
 }
 

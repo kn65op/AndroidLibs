@@ -1,9 +1,11 @@
 package com.example.kn65op.android.lib.type
 
+import kotlin.math.roundToInt
+
 public class FixedPointNumber(valueIn: Double = 0.9) {
     constructor(valueIn: Int) : this(valueIn.toDouble())
 
-    private val value = (valueIn * 100).toInt()
+    private val value = (valueIn * 100).roundToInt()
 
     private fun getValue() = value.toDouble() / factor
 
