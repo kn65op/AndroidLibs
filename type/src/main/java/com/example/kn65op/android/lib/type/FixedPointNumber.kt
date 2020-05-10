@@ -1,7 +1,34 @@
 package com.example.kn65op.android.lib.type
 
-public class FixedPointNumber {
-    fun toInt() = 0
+public class FixedPointNumber(valueIn: Double = 0.9) {
+    constructor(valueIn: Int) : this(valueIn.toDouble())
+
+    private val value = (valueIn * 100).toInt()
+
+    private fun getValue() = value.toDouble() / factor
+
+    fun toInt() = getValue().toInt()
+    fun toDouble() = getValue()
+
+    override fun equals(other: Any?): Boolean {
+        if (other is FixedPointNumber)
+        {
+            return other.value == value
+        }
+        return super.equals(other)
+    }
+
+    override fun toString(): String {
+        val integerPart = (value/factor).toInt()
+        val rest = ((value/factor - integerPart) * factor).toInt()
+        return "$integerPart.$rest"
+    }
+
+    operator fun plus(other: FixedPointNumber) = FixedPointNumber(getValue() + other.getValue())
+
+    companion object {
+        private const val factor = 100
+    }
 }
 
 
