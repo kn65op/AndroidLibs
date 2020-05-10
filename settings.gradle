@@ -1,0 +1,3 @@
+rootProject.name='kn65opAndroidLibs'
+include ':app'
+include ':type'
