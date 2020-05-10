@@ -1,9 +1,10 @@
-package com.example.kn65op.android.lib.type
+package io.github.kn65op.android.lib.type
 
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.closeTo
 import com.natpryce.hamkrest.equalTo
 import com.natpryce.hamkrest.matches
+import io.github.kn65op.android.lib.type.FixedPointNumber
 import org.junit.Test
 
 class FixedPointNumberTest {
@@ -39,26 +40,50 @@ class FixedPointNumberTest {
 
     @Test
     fun add() {
-        assertThat(FixedPointNumber(1.0) + FixedPointNumber(2.0), equalTo(FixedPointNumber(3.0)))
-        assertThat(FixedPointNumber(8.22) + FixedPointNumber(1.99), equalTo(FixedPointNumber(10.21)))
+        assertThat(
+            FixedPointNumber(1.0) + FixedPointNumber(
+                2.0
+            ), equalTo(FixedPointNumber(3.0)))
+        assertThat(
+            FixedPointNumber(8.22) + FixedPointNumber(
+                1.99
+            ), equalTo(FixedPointNumber(10.21)))
     }
 
     @Test
     fun subtract() {
-        assertThat(FixedPointNumber(1.0) - FixedPointNumber(2.0), equalTo(FixedPointNumber(-1.0)))
-        assertThat(FixedPointNumber(8.22) - FixedPointNumber(1.99), equalTo(FixedPointNumber(6.23)))
+        assertThat(
+            FixedPointNumber(1.0) - FixedPointNumber(
+                2.0
+            ), equalTo(FixedPointNumber(-1.0)))
+        assertThat(
+            FixedPointNumber(8.22) - FixedPointNumber(
+                1.99
+            ), equalTo(FixedPointNumber(6.23)))
     }
 
     @Test
     fun multiply() {
-        assertThat(FixedPointNumber(1.0) * FixedPointNumber(2.0), equalTo(FixedPointNumber(2.0)))
-        assertThat(FixedPointNumber(8.22) * FixedPointNumber(1.99), equalTo(FixedPointNumber(16.36)))
+        assertThat(
+            FixedPointNumber(1.0) * FixedPointNumber(
+                2.0
+            ), equalTo(FixedPointNumber(2.0)))
+        assertThat(
+            FixedPointNumber(8.22) * FixedPointNumber(
+                1.99
+            ), equalTo(FixedPointNumber(16.36)))
     }
 
     @Test
     fun divide() {
-        assertThat(FixedPointNumber(1.0) / FixedPointNumber(2.0), equalTo(FixedPointNumber(0.5)))
-        assertThat(FixedPointNumber(8.22) / FixedPointNumber(1.99), equalTo(FixedPointNumber(4.13)))
+        assertThat(
+            FixedPointNumber(1.0) / FixedPointNumber(
+                2.0
+            ), equalTo(FixedPointNumber(0.5)))
+        assertThat(
+            FixedPointNumber(8.22) / FixedPointNumber(
+                1.99
+            ), equalTo(FixedPointNumber(4.13)))
     }
 
     @Test

@@ -1,4 +1,4 @@
-package com.example.kn65op.android.lib.type
+package io.github.kn65op.android.lib.type
 
 import kotlin.math.roundToInt
 
@@ -24,10 +24,14 @@ public class FixedPointNumber(valueIn: Double = 0.9) {
         return "%.2f".format(getValue())
     }
 
-    operator fun plus(other: FixedPointNumber) = FixedPointNumber(getValue() + other.getValue())
-    operator fun minus(other: FixedPointNumber) = FixedPointNumber(getValue() - other.getValue())
-    operator fun times(other: FixedPointNumber) = FixedPointNumber(getValue() * other.getValue())
-    operator fun div(other: FixedPointNumber) = FixedPointNumber(getValue() / other.getValue())
+    operator fun plus(other: FixedPointNumber) =
+        FixedPointNumber(getValue() + other.getValue())
+    operator fun minus(other: FixedPointNumber) =
+        FixedPointNumber(getValue() - other.getValue())
+    operator fun times(other: FixedPointNumber) =
+        FixedPointNumber(getValue() * other.getValue())
+    operator fun div(other: FixedPointNumber) =
+        FixedPointNumber(getValue() / other.getValue())
 
     companion object {
         private const val factor = 100
