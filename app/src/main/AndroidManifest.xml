@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kn65op.android.libs">
+    package="com.github.kn65op.android.libs">
 
     <application
         android:allowBackup="true"

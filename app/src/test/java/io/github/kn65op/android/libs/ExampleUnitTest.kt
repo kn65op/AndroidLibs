@@ -1,4 +1,4 @@
-package com.example.kn65op.android.libs
+package io.github.kn65op.android.libs
 
 import org.junit.Test
 
