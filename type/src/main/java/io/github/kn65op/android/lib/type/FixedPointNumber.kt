@@ -2,6 +2,9 @@ package io.github.kn65op.android.lib.type
 
 import kotlin.math.roundToInt
 
+/*
+ @class
+ */
 public class FixedPointNumber(valueIn: Double = 0.9) {
     constructor(valueIn: Int) : this(valueIn.toDouble())
 

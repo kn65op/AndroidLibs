@@ -4,7 +4,6 @@ import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.closeTo
 import com.natpryce.hamkrest.equalTo
 import com.natpryce.hamkrest.matches
-import io.github.kn65op.android.lib.type.FixedPointNumber
 import org.junit.Test
 
 class FixedPointNumberTest {
