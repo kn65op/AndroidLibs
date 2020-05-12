@@ -12,7 +12,7 @@ class FixedPointNumberTest {
     @Test
     fun `Not initialized should be zero`() {
         val number = FixedPointNumber()
-        assertThat(number.toInt(), equalTo(0))
+        assertThat(number.toDouble(), equalTo(0.0))
     }
 
     @Test
