@@ -5,7 +5,7 @@ import kotlin.math.roundToInt
 public class FixedPointNumber(valueIn: Double = 0.0) {
     internal class NoConvert{}
     constructor(valueIn: Int) : this(valueIn.toDouble())
-    internal constructor(valueIn: Int, dummy : NoConvert) : this(valueIn.toDouble() / factor)
+    internal constructor(valueIn: Int, @Suppress("UNUSED_PARAMETER") dummy : NoConvert) : this(valueIn.toDouble() / factor)
 
     private val value = (valueIn * factor).roundToInt()
 
