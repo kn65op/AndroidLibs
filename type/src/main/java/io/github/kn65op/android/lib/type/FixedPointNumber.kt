@@ -2,15 +2,19 @@ package io.github.kn65op.android.lib.type
 
 import kotlin.math.roundToInt
 
-public class FixedPointNumber(valueIn: Double = 0.9) {
+public class FixedPointNumber(valueIn: Double = 0.0) {
+    internal class NoConvert{}
     constructor(valueIn: Int) : this(valueIn.toDouble())
+    internal constructor(valueIn: Int, dummy : NoConvert) : this(valueIn.toDouble() / factor)
 
-    private val value = (valueIn * 100).roundToInt()
+    private val value = (valueIn * factor).roundToInt()
 
     private fun getValue() = value.toDouble() / factor
+    internal fun getRawValue() = value
 
     fun toInt() = getValue().toInt()
     fun toDouble() = getValue()
+
 
     override fun equals(other: Any?): Boolean {
         if (other is FixedPointNumber) {

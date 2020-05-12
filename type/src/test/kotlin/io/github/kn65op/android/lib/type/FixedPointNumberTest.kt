@@ -4,7 +4,6 @@ import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.closeTo
 import com.natpryce.hamkrest.equalTo
 import com.natpryce.hamkrest.matches
-import io.github.kn65op.android.lib.type.FixedPointNumber
 import org.junit.Test
 
 class FixedPointNumberTest {
@@ -13,7 +12,7 @@ class FixedPointNumberTest {
     @Test
     fun `Not initialized should be zero`() {
         val number = FixedPointNumber()
-        assertThat(number.toInt(), equalTo(0))
+        assertThat(number.toDouble(), equalTo(0.0))
     }
 
     @Test
@@ -36,6 +35,20 @@ class FixedPointNumberTest {
         val number = FixedPointNumber(2.344)
 
         assertThat(number.toDouble(), closeTo(2.34, error))
+    }
+
+    @Test
+    fun `No convert initialization should not convert`() {
+        val number = FixedPointNumber(212, FixedPointNumber.NoConvert())
+
+        assertThat(number.toDouble(), closeTo(2.12, error))
+    }
+
+    @Test
+    fun `getRaw shuold return raw value`() {
+        val number = FixedPointNumber(2.34)
+
+        assertThat(number.getRawValue(), equalTo(234))
     }
 
     @Test
