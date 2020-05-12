@@ -6,6 +6,11 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     testImplementation 'junit:junit:4.13'
     testImplementation 'com.natpryce:hamkrest:1.7.0.0'
+
+    //ROOM
+    def room_version = "2.2.5"
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
 }
 
 sourceCompatibility = "7"

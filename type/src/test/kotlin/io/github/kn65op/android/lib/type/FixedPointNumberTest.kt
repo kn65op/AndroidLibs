@@ -38,6 +38,20 @@ class FixedPointNumberTest {
     }
 
     @Test
+    fun `No convert initialization should not convert`() {
+        val number = FixedPointNumber(212, FixedPointNumber.NoConvert())
+
+        assertThat(number.toDouble(), closeTo(2.12, error))
+    }
+
+    @Test
+    fun `getRaw shuold return raw value`() {
+        val number = FixedPointNumber(2.34)
+
+        assertThat(number.getRawValue(), equalTo(234))
+    }
+
+    @Test
     fun add() {
         assertThat(
             FixedPointNumber(1.0) + FixedPointNumber(
