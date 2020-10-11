@@ -39,6 +39,9 @@ public class FixedPointNumber(valueIn: Double = 0.0) {
     operator fun div(other: FixedPointNumber) =
         FixedPointNumber(getValue() / other.getValue())
 
+    operator fun compareTo(other: FixedPointNumber) =
+        value - other.value
+
     companion object {
         private const val factor = 100
     }
