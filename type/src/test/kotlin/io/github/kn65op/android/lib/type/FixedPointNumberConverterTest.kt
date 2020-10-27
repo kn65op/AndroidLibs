@@ -6,7 +6,7 @@ import com.natpryce.hamkrest.equalTo
 import org.junit.Test
 
 class FixedPointNumberConverterTest {
-    val converter = FixedPointNumberConverter()
+    private val converter = FixedPointNumberConverter()
     private val error = 0.001
 
     @Test

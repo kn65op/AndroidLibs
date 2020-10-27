@@ -47,7 +47,7 @@ class FixedPointNumberTest {
     }
 
     @Test
-    fun `getRaw shuold return raw value`() {
+    fun `getRaw should return raw value`() {
         val number = FixedPointNumber(2.34)
 
         assertThat(number.getRawValue(), equalTo(234))

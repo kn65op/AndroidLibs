@@ -2,15 +2,13 @@ package io.github.kn65op.android.lib.gui.dialogs
 
 import android.app.DatePickerDialog
 import android.app.Dialog
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.DatePicker
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
 import java.time.LocalDate
 
-class LocalDatePickerDialog @RequiresApi(Build.VERSION_CODES.O) constructor(
+class LocalDatePickerDialog constructor(
     private val listener: DatePickerListener,
     private val date: LocalDate = LocalDate.now()
 ) :

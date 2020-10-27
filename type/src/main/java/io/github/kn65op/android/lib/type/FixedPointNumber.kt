@@ -2,7 +2,7 @@ package io.github.kn65op.android.lib.type
 
 import kotlin.math.roundToInt
 
-public class FixedPointNumber(valueIn: Double = 0.0) {
+class FixedPointNumber(valueIn: Double = 0.0) {
     internal class NoConvert{}
     constructor(valueIn: Int) : this(valueIn.toDouble())
     internal constructor(valueIn: Int, @Suppress("UNUSED_PARAMETER") dummy : NoConvert) : this(valueIn.toDouble() / factor)
@@ -41,6 +41,10 @@ public class FixedPointNumber(valueIn: Double = 0.0) {
 
     operator fun compareTo(other: FixedPointNumber) =
         value - other.value
+
+    override fun hashCode(): Int {
+        return value
+    }
 
     companion object {
         private const val factor = 100
