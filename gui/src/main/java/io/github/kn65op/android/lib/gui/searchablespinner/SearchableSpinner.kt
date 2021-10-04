@@ -10,12 +10,6 @@ class SearchableSpinner(context: Context, attributeSet: AttributeSet) :
     AppCompatSpinner(context, attributeSet) {
 
     var onSelectionListener: ((Int) -> Unit)? = null
-        set(value) {
-            field = value
-            val initialPosition = 0
-            setSelection(initialPosition)
-        }
-
     var entries: SearchableSpinnerEntries = EmptySearchableSpinnerEntries()
         set(value) {
             field = value
