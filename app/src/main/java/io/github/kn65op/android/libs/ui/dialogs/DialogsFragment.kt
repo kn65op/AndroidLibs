@@ -46,6 +46,10 @@ class DialogsFragment : Fragment() {
             searchableSpinner.setSelection(5)
         }
 
+        binding.searchableSpinnerInvalidEntry.setOnClickListener {
+            searchableSpinner.setSelection(spinnerOptions.size)
+        }
+
         return binding.root
     }
 

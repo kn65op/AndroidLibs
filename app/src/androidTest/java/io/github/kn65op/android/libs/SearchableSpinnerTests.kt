@@ -64,4 +64,13 @@ class SearchableSpinnerTests {
         val expectedEntry = ""
         onView(withId(R.id.searchable_spinner_selected_value)).check(matches(withText(expectedEntry)))
     }
+
+    @Test
+    fun invalidSelectionShouldNotCallCallback() {
+        goToDialogs()
+        onView(withId(R.id.searchable_selection_set_entry)).perform(click())
+        onView(withId(R.id.searchable_spinner_invalid_entry)).perform(click())
+        val expectedEntry = "First sentry"
+        onView(withId(R.id.searchable_spinner_selected_value)).check(matches(withText(expectedEntry)))
+    }
 }

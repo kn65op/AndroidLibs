@@ -28,7 +28,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/searchable_spinner_invalid_entry"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchable_spinner_selected_value" />
+
+    <Button
+        android:id="@+id/searchable_spinner_invalid_entry"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/searchable_selection_set_entry" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,8 +21,14 @@ class SearchableSpinner(context: Context, attributeSet: AttributeSet) :
     }
 
     override fun setSelection(position: Int) {
-        onSelectionListener?.invoke(position)
-        super.setSelection(position)
+        val minPosition = 0
+        val maxPosition = entries.texts().size
+        if (position in minPosition until maxPosition) {
+            onSelectionListener?.invoke(position)
+            super.setSelection(position)
+        } else {
+            Log.i(LOG_TAG, "Selected invalid position, $position not in [$minPosition; $maxPosition)")
+        }
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
