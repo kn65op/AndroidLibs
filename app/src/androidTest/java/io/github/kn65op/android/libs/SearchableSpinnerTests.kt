@@ -20,16 +20,20 @@ import org.junit.runner.RunWith
 class SearchableSpinnerTests {
 
     @get:Rule
-    val activityRule: ActivityScenarioRule<TestsActivity>
-            = ActivityScenarioRule(TestsActivity::class.java)
+    val activityRule: ActivityScenarioRule<TestsActivity> =
+        ActivityScenarioRule(TestsActivity::class.java)
 
-    @Test
-    fun selectFromSearchableSpinner() {
-        val entry = "4: last entry"
-        val entryT = "last entry"
+    fun goToDialogs() {
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.open())
         onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_dialog))
         Thread.sleep(1000) //??????? don't work without it
+    }
+
+    @Test
+    fun selectFromSearchableSpinner() {
+        goToDialogs()
+        val entry = "4: last entry"
+        val entryT = "last entry"
         onView(withId(R.id.searchableSpinner)).perform(click())
         onView(withText(entry)).perform(click())
         onView(withId(R.id.searchable_spinner_selected_value)).check(matches(withText(entryT)))
@@ -37,14 +41,27 @@ class SearchableSpinnerTests {
 
     @Test
     fun selectFromSearchableSpinner_whenSearching() {
+        goToDialogs()
         val entry = "17: Third cat"
         val entryT = "Third cat"
-        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open())
-        onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_dialog))
-        Thread.sleep(1000) //??????? don't work without it
         onView(withId(R.id.searchableSpinner)).perform(click())
         onView(withId(R.id.searchable_selection_search_field)).perform(typeText("cat"))
         onView(withText(entry)).perform(click())
         onView(withId(R.id.searchable_spinner_selected_value)).check(matches(withText(entryT)))
+    }
+
+    @Test
+    fun selectionByCodeShouldCallCallback() {
+        goToDialogs()
+        onView(withId(R.id.searchable_selection_set_entry)).perform(click())
+        val expectedEntry = "First sentry"
+        onView(withId(R.id.searchable_spinner_selected_value)).check(matches(withText(expectedEntry)))
+    }
+
+    @Test
+    fun firstSelectionShouldCallCallback() {
+        goToDialogs()
+        val expectedEntry = "First entry"
+        onView(withId(R.id.searchable_spinner_selected_value)).check(matches(withText(expectedEntry)))
     }
 }

@@ -10,6 +10,12 @@ class SearchableSpinner(context: Context, attributeSet: AttributeSet) :
     AppCompatSpinner(context, attributeSet) {
 
     var onSelectionListener: ((Int) -> Unit)? = null
+        set(value) {
+            field = value
+            val initialPosition = 0
+            setSelection(initialPosition)
+        }
+
     var entries: SearchableSpinnerEntries = EmptySearchableSpinnerEntries()
         set(value) {
             field = value
@@ -18,6 +24,11 @@ class SearchableSpinner(context: Context, attributeSet: AttributeSet) :
 
     init {
         Log.d(LOG_TAG, "Hello")
+    }
+
+    override fun setSelection(position: Int) {
+        onSelectionListener?.invoke(position)
+        super.setSelection(position)
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
@@ -31,7 +42,6 @@ class SearchableSpinner(context: Context, attributeSet: AttributeSet) :
     private fun startDialog() {
         SearchableSpinnerDialog(context, entries) { position: Int ->
             setSelection(position)
-            onSelectionListener?.invoke(position)
         }.show()
     }
 

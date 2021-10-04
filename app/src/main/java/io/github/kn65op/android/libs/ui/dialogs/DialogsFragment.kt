@@ -42,6 +42,10 @@ class DialogsFragment : Fragment() {
             binding.searchableSpinnerSelectedValue.text = dataForSpinner[position]
         }
 
+        binding.searchableSelectionSetEntry.setOnClickListener {
+            searchableSpinner.setSelection(5)
+        }
+
         return binding.root
     }
 
