@@ -59,9 +59,9 @@ class SearchableSpinnerTests {
     }
 
     @Test
-    fun firstSelectionShouldNotCallCallback() {
+    fun firstSelectionShouldCallCallback() {
         goToDialogs()
-        val expectedEntry = ""
+        val expectedEntry = "First entry"
         onView(withId(R.id.searchable_spinner_selected_value)).check(matches(withText(expectedEntry)))
     }
 
